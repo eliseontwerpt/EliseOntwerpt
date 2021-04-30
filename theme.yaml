@@ -1,0 +1,32 @@
+name: EliseOntwerpt
+description: 'Theme by Eliseontwerpt.nl'
+author: EliseOntwerpt
+homepage: eliseontwerpt.nl
+code: EliseOntwerpt
+form:
+    fields:
+        theme_site_name:
+            label: Site name
+            comment: The website name as it should appear on the front-end
+            default: My Amazing Site!
+        theme_primary_color:
+            label: Primary color
+            type: colorpicker
+            assetVar: 'primary-color'
+        theme_secondary_color:
+            label: Secondary color
+            type: colorpicker
+            assetVar: 'secondary-color'
+        theme_background_image:
+            label: Background image
+            type: mediafinder
+            mode: image
+        theme_logo:
+            label: Logo
+            type: mediafinder
+            mode: image
+require:
+    - RainLab.Translate
+    - RainLab.Blog
+    - Martin.Forms
+

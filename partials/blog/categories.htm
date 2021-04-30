@@ -1,0 +1,56 @@
+==
+{##}
+{% set categories = blogCategories.categories %}
+{% set currentCategorySlug = blogCategories.currentCategorySlug %}
+
+<div class="sidebar-widget card border-0 ">
+
+    {% if post.featured_images.count %}
+        <div class="featured-images text-center">
+            <div class="container"> 
+                {% for image in post.featured_images %}
+                <div class="row">
+    <!-- Button to Open the Modal -->
+                    <button type="button" class="btn btn-close p-2" data-toggle="modal" data-target="#blog_image_{{ loop.index }}" >
+                        <p>
+                            <img class="img-fluid rounded"
+                                data-src="{{ image.filename }}"
+                                src="{{ image.path }}"
+                                alt="{{ image.description }}"
+                                style="max-width: 100%"/>               
+                        </p>
+                    </button>
+                </div>    
+    <!-- end Modal buttonm -->            
+    <!-- The Modal -->
+                <div class="row modal" id="blog_image_{{ loop.index }}">
+                    <div class="modal-dialog">
+                        <div class="modal-content">                    
+                            <div class="modal-header"><!-- Modal Header -->
+                                {% if image.title %}
+                                    <h6>{{image.title}}</h6>
+                                {% endif %}                     
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                             </div>                  
+                             <div class="modal-body"><!-- Modal body -->
+                                 <img class="img"
+                                    data-src="{{ image.filename }}"
+                                    src="{{ image.path }}"
+                                    alt="{{ image.description }}"
+                                    style="max-width: 100%" />           
+    
+                            </div>                    
+                            <div class="modal-footer"><!-- Modal footer -->
+                                {% if image.description %}
+                                     <p>{{image.description}}</p>
+                                {% endif %}
+                                <button type="button" class="btn btn-outline-info" data-dismiss="modal">Close</button>
+                            </div><!-- End Modal footer -->                   
+                        </div>
+                    </div>
+                </div>              
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+</div>

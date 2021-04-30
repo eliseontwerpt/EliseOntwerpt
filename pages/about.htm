@@ -1,0 +1,76 @@
+title = "About"
+url = "/about"
+layout = "cms-layout"
+is_hidden = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "members"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at asc"
+categoryPage = "blog/category"
+postPage = "blog/post"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "blog/category"
+==
+<section class="page-title bg-1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block text-center">
+          <span class="text-white">{{ 'About'|_ }}</span>
+          <h1 class="text-capitalize mb-4 text-lg">{{ 'Ecological Restoration Advice' |_ }}</h1>
+          <ul class="list-inline">
+            <span class="text-center" >{% content 'about/intro'%}</span>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--  Section Services Start -->
+<section class="section team bg-gray">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-7 text-center">
+				<div class="section-title">
+					<span class="h6 text-color">{{ 'Our Team'|_ }}</span>
+					<h2 class="mt-3 content-title">{{ 'The members of the board'|_ }}</h2>
+				</div>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			{% set posts = blogPosts.posts %}
+            {% for post in posts %}			
+			<div class="col-lg-4 col-md-6 col-sm-6">
+				<div class="team-item-wrap mb-5">
+				<a href="{{ post.url }}">
+					<div class="team-item position-relative">
+						<img class="img-fluid w-100" src="{{ post.featured_images.first.getThumb(540, 'auto') }}" />
+						<div class="team-img-hover">
+							<ul class="team-social list-inline">								
+								<li class="list-inline-item text-dark">
+								    {{ post.excerpt }}
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="team-item-content">
+						<h4 class="mt-3 mb-0 text-capitalize">{{ post.title }}</h4>
+						<p class="text-dark" >{{ post.subtitle }}</p>
+					</div>
+					</a>
+				</div>
+			</div>
+		    
+            {% endfor %}			
+		</div>
+	</div>
+</section>
+
+<!--  Section Services End -->

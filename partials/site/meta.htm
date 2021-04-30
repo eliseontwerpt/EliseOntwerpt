@@ -1,0 +1,117 @@
+description = "Meta Partial"
+==
+<?php
+function onStart()
+{
+    $this['mailto'] = "info@stichting-era.nl";
+    $this['adres_straat'] = "Westerveen 23";
+    $this['adres_postcode'] = "9751 HV";
+    $this['adres_plaats'] = "Haren";
+    $this['IBAN'] = "NL20 INGB 0004 2783 30";
+    $this['stichtingnaam'] = "Stichting ERA";
+    $this['KVK'] = "02100590";
+}
+?>
+==
+{##}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{# Meta Tags #}
+{% if blogPost.post %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="{{ html_limit(post.summary, 140)|raw }}">
+<meta name="title" content="{{ post.title }} - {{ this.theme.theme_site_name }}">
+<meta name="author" content="{{ post.user.first_name }}">
+<meta name="robots" content=="index, follow">
+<meta name="generator" content="{{ this.theme.theme_site_name }}">
+<meta name="author" content="themefisher.com">
+
+<title>{{ post.title }} - {{ this.theme.theme_site_name }}</title>
+{% elseif this.page.url == '/blog/:page?' %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="{{ this.page.meta_description|default(this.theme.site_description) }}">
+<meta name="title" content="{{ this.page.meta_title|default(this.page.title) }} - {{ this.theme.theme_site_name }}">
+<meta name="author" content="{{ this.theme.theme_site_author }}">
+<meta name="robots" content="index, follow">
+<meta name="generator" content="{{ this.theme.theme_site_name }}">
+
+<title>{{ this.page.meta_title|default(this.page.title) }} - {{ this.theme.theme_site_name }}</title>
+{% elseif blogCategories.categories %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="{{ html_limit(category.description, 140)|raw }}">
+<meta name="title" content="{{ category.name }} - {{ this.theme.theme_site_name }}">
+<meta name="author" content="{{ this.theme.theme_site_author }}">
+<meta name="robots" content="index, follow">
+<meta name="generator" content="{{ this.theme.theme_site_name }}">
+
+<title>{{ category.name }} - {{ this.theme.theme_site_name }}</title>
+{% else %}
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="{{ this.page.meta_description|default(this.theme.theme_site_description) }}">
+<meta name="title" content="{{ this.page.meta_title|default(this.page.title) }} - {{ this.theme.theme_site_name }}">
+<meta name="author" content="{{ this.theme.theme_site_author }}">
+<meta name="robots" content="index, follow">
+<meta name="generator" content="{{ this.theme.theme_site_name }}">
+
+<title>{{ this.page.meta_title|default(this.page.title) }} {{ this.theme.theme_site_name }}</title>
+{% endif %}
+
+{# Favicon #}
+<link rel="icon" type="image/png" href="{{ 'assets/images/october.png'|theme }}">
+{# CSS #}
+<link href="{{ [
+  'assets/plugins/bootstrap/css/bootstrap.min.css',
+  'assets/plugins/themify/css/themify-icons.css',
+  'assets/plugins/fontawesome/css/all.css',
+  'assets/plugins/magnific-popup/dist/magnific-popup.css',
+  'assets/plugins/slick-carousel/slick/slick.css',
+  'assets/plugins/slick-carousel/slick/slick-theme.css'
+]|theme }}" rel="stylesheet">
+{# Style SCSS #}
+<link href="{{ [
+  'assets/scss/style.scss'
+]|theme }}" rel="stylesheet">
+
+<style>
+    .slider {
+        background: url("{{ this.theme.theme_background_image|media }}") no-repeat 50% 30%;  
+        background-size: cover;
+    }
+    #navbar, .btn-main, a.navbar-brand span, .bg-primary {
+        background-color: {{ this.theme.theme_primary_color }}
+    }
+    h4, .h6, button h6, h3 span, button.btn-link, .arrow, .subtitle {
+        color: {{ this.theme.theme_primary_color }} !important;
+    }
+    .nav-item .active {
+        background-color: red!important;
+    }
+    .dropdown-item:hover {
+        background: #666;
+    }
+    a:focus, a:hover {
+         color: rgba(255,255,255,0.5)!important;
+    }
+    a.navbar-brand span {
+        color: {{ this.theme.theme_secondary_color }}
+    }
+    .active a {
+        color: rgba(255,255,255,0.5)!important;
+    }
+    section.slider::before {
+        background: rgba(0,0,0,0.8);  
+    }
+    .down {
+        border-color: #666!important;
+    }
+    .footer a:hover {color: #14A085!important;}
+</style>

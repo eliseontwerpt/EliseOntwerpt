@@ -1,0 +1,35 @@
+title = "Products"
+url = "/blog/:page?"
+layout = "blog-layout"
+description = "The main blog page, with all posts."
+meta_title = "Products"
+is_hidden = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "producten"
+postsPerPage = 4
+noPostsMessage = "No posts found"
+sortOrder = "created_at asc"
+categoryPage = "blog/category"
+postPage = "blog/post"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "blog/category"
+==
+<?php
+function onStart()
+{
+    $this['bannerImage'] = $this->themeUrl('assets/images/blog-banner.jpg');
+}
+?>
+==
+<section class="section blog-wrap bg-gray">
+    <div class="container">
+        <div class="row">
+            {% partial 'blog/posts' %}
+        </div>
+    </div>
+</section>

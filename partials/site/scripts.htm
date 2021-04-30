@@ -1,0 +1,32 @@
+description = "Essential Scripts"
+==
+<?php
+function onStart()
+{
+    $this['mailto'] = "info@stichting-era.nl";
+    $this['adres_straat'] = "Westerveen 23";
+    $this['adres_postcode'] = "9751 HV";
+    $this['adres_plaats'] = "Haren";
+    $this['IBAN'] = "NL20 INGB 0004 2783 30";
+    $this['stichtingnaam'] = "Stichting ERA";
+    $this['KVK'] = "02100590";
+}
+?>
+==
+{##}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<!-- 'assets/plugins/jquery/jquery.js', //-->
+<script src="{{ [
+    '@framework',
+    '@framework.extras',
+    'assets/plugins/bootstrap/js/popper.js',
+    'assets/plugins/bootstrap/js/bootstrap.min.js',
+    'assets/plugins/magnific-popup/dist/jquery.magnific-popup.min.js',
+    'assets/plugins/slick-carousel/slick/slick.min.js',
+    'assets/plugins/counterup/jquery.waypoints.min.js',
+    'assets/plugins/counterup/jquery.counterup.min.js',
+    'assets/plugins/google-map/map.js',
+    'assets/js/script.js'
+]|theme }}"></script>
+{# Google Map #}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>

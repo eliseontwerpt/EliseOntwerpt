@@ -1,0 +1,39 @@
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "publicaties"
+postsPerPage = 100
+noPostsMessage = "No posts found"
+sortOrder = "created_at asc"
+categoryPage = "blog/category"
+postPage = "blog/post"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "blog/category"
+==
+{% if 'projects'|page %}
+{% set publications = blogPosts.posts %}    
+    {% for publication in publications %}
+        <!--h1> {{ publication.title }} </h1-->
+        {% if publication.slug == "publ-" ~ post.slug %}        
+        <div class="col-lg-12 col-md-12 mb-6">
+                <div class="togglelink">
+                    <li class="bg-transparent">
+                        <button data-target="#public_{{ loop.index }}" class="btn btn-link toggleheader" data-toggle="collapse" aria-expanded="false"><h6>
+                           
+                                <li class="arrow down"></li> Literature</a>                            
+                            </h6> </button>   
+                            {% if publication.excerpt %}
+                                <div class="excerpt collapse p-4" id="public_{{loop.index}}">{{ publication.excerpt }}</div>
+                            {% else %}                              
+
+                            <div class="content collapse"  id="public_{{loop.index}}">{{ publication.content_html|raw }}</div>
+
+                        {% endif %}                       
+                    </li>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+    {% endif %}

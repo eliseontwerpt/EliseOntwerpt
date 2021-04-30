@@ -1,0 +1,65 @@
+description = "Intro Partial"
+==
+{##}
+{# Section Intro Start #}
+
+<section class="section intro bg-gray">
+	<div class="container">
+		<div class="row ">
+			<div class="col-lg-8">
+				<div class="section-title">
+					<h3><span>{{ 'Welcome'|_ }}</span></h3>
+					<!--div class="mt-3 content-title"-->{% content "home/intro" %} <!--/div-->
+				</div>
+			</div>
+		</div>
+		
+			<div class="container-fluid">
+		<div class="row portfolio-gallery">
+			<div class="col-lg-4 col-md-6">
+			    <h3>{{ 'Projects'|_ }}</h3>
+				<!--div class="portflio-item position-relative mb-4"-->
+					
+					<a class="nav-link" href="{{ 'projects'|page }}">
+						<img src="/storage/app/media/foto-projecten-pag1.jpg" alt="" class="img-fluid w-100">
+
+						<!--i class="ti-plus overlay-item"></i-->
+						<div class="portfolio-item-content">
+						</div>
+					</a>
+					<a href="{{ 'projects'|page }}" class="intro btn btn-small btn-main btn-round-full" >{{ 'Read More'|_ }}</a>
+				<!--/div-->
+			</div>
+			<div class="col-lg-4 col-md-6">
+			    <h3>{{ 'Advice & Evaluations'|_ }}</h3>
+				<!--div class="portflio-item position-relative mb-4"-->
+					<!--a href="https://placehold.it/600x466" class="popup-gallery"-->
+						<a class="nav-link" href="{{ 'adviceandevaluations'|page }}">
+						<img src="/storage/app/media/foto-evaluations-pag_1.jpg" alt="" class="img-fluid w-100">
+
+						<!--i class="ti-plus overlay-item"></i-->
+						<div class="portfolio-item-content">							
+						</div>
+					<!--/a-->
+					
+					<a href="{{ 'adviceandevaluations'|page }}" class="intro btn btn-small btn-main btn-round-full">{{ 'Read More'|_ }}</a>
+				<!--/div-->
+			</div>
+			<div class="col-lg-4 col-md-6">
+			    <h3>{{ 'Products'|_ }}</h3>
+				<!--div class="portflio-item position-relative mb-4"-->
+					<!--a href="https://placehold.it/600x466" class="popup-gallery"-->
+						<a class="nav-link" href="{{ 'blog'|page }}">
+						<img src="/storage/app/media/foto-producten-pag1.jpg" alt="" class="img-fluid w-100">
+
+						<!--i class="ti-plus overlay-item"></i-->
+						<div class="portfolio-item-content">
+						</div>
+					<!--/a-->
+					<a href="{{ post.url }}" class="intro btn btn-small btn-main btn-round-full">{{ 'Read More'|_ }}</a>					
+				<!--/div-->
+			</div>
+		</div>
+	</div>
+</section>
+{# Section Intro End #}

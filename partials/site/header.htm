@@ -1,0 +1,51 @@
+description = "Header with TopBar and Navigation"
+==
+{##}
+{# Header Start #}
+<header class="navigation">
+	</div> 
+	<nav class="navbar navbar-expand-lg  py-4" id="navbar">
+		<div class="container">
+		  <a class="navbar-brand" href="{{ 'home'|page }}">
+		  	{% if activeLocale == 'en' %}
+		  	ERA<span> {{ 'foundation'|_ }}</span>
+		      {% else %}
+		    <span>{{ 'foundation'|_ }} </span>ERA
+		    {% endif %}
+		  </a>
+		  <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="fa fa-bars"></span>
+		  </button>
+	  
+		  <div class="collapse navbar-collapse text-center" id="navbarsExample09">
+			<ul class="navbar-nav ml-auto">
+                <li class="nav-item {% if this.page.id == 'home' %}active{% endif %}">
+                    <a class="nav-link" href="{{ 'home'|page }}">Home</a>
+                </li>
+                <li class="nav-item {% if this.page.id == 'about' %}active{% endif %}">
+                    <a class="nav-link" href="{{ 'about'|page }}">{{ 'About us'|_ }}</a></li>
+                <li class="nav-item {% if this.page.id == 'projects' %}active{% endif %}">
+                    <a class="nav-link" href="{{ 'projects'|page }}">{{ 'Projects'|_ }}</a></li>
+                <li class="nav-item {% if this.page.id == 'adviceandevaluations' %}active{% endif %}">
+                    <a class="nav-link" href="{{ 'adviceandevaluations'|page }}">{{ 'Advice & Evaluations'|_ }}</a></li>
+                <li class="nav-item {% if this.page.id == 'blog' %}active{% endif %}">
+                    <a class="nav-link" href="{{ 'blog'|page }}">{{ 'Products'|_ }}</a></li>
+                <li class="nav-item {% if this.page.id == 'publications' %}active{% endif %}">
+                    <a class="nav-link" href="{{ 'publications'|page }}">{{ 'Publications'|_ }}</a></li>
+                <li class="nav-item {% if this.page.id == 'contact-us' %}active{% endif %}">
+                    <a class="nav-link" href="{{ 'contact-us'|page }}">{{ 'Contact'|_ }}</a></li>               
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-uppercase" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ activeLocale }}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown4">
+                        <a href="#" class="dropdown-item" data-request="onSwitchLocale" data-request-data="locale: 'en'">EN</a>  
+                        <a href="#" class="dropdown-item" data-request="onSwitchLocale" data-request-data="locale: 'nl'">NL</a> 
+                    </div>
+                </li>
+			</ul>
+		  </div>
+		</div>
+	</nav>
+</header>
+{# Header Close #}

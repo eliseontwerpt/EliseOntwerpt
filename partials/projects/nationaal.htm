@@ -1,0 +1,41 @@
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "projecten_nationaal"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at asc"
+categoryPage = "blog/category"
+postPage = "blog/post"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "blog/category"
+==
+{% set posts = blogPosts.posts %}
+
+<div class="container-fluid">
+    <div class="row">
+        {% for post in posts %}
+        <div class="col-lg-4 col-md-4 mb-6">
+            <div class="blog-item bg-white">
+                <div class="blog-item-content p-5">
+                        <h3 class="mt-3 mb-3">
+                            <a href="{{ post.url }}">{{ post.title }}</a>
+                        </h3>    
+                        {% if post.excerpt %}
+                            <p class="excerpt">{{ post.excerpt }}</p>
+                        {% else %}
+                            <div class="content">{{ post.content_html|raw }}</div>
+                        {% endif %}
+                    <a href="{{ post.url }}" class="btn btn-small btn-main btn-round-full" >Learn More</a>
+                </div>
+            </div>
+        </div>    
+        {% else %}
+        <div class="no-data">
+            <p>{{ noPostsMessage }}</p>
+        </div>
+    {% endfor %}
+    </div>
+</div>

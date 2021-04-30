@@ -1,0 +1,57 @@
+description = "Footer Partial"
+==
+<?php
+function onStart()
+{
+    $this['mailto'] = "info@stichting-era.nl";
+    $this['adres_straat'] = "Westerveen 23";
+    $this['adres_postcode'] = "9751 HV";
+    $this['adres_plaats'] = "Haren";
+    $this['IBAN'] = "NL20 INGB 0004 2783 30";
+    $this['stichtingnaam'] = "Stichting ERA";
+    $this['KVK'] = "02100590";
+}
+?>
+==
+{##}
+{# Footer Start #}
+<footer class="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 col-md-4 col-sm-6">
+				<div class="widget">
+					<h4 class="text-capitalize mb-4"></h4>
+					<div class="logo mb-4">
+					    <img src="/storage/app/media/logo-era-vierkant-highres.jpg" class="img-fluid w-50">
+						<h3>{% if activeLocale == 'en' %}
+		  	ERA<span> {{ 'foundation'|_ }}</span>
+		      {% else %}
+		    <span> {{ 'foundation'|_ }} </span>ERA
+		    {% endif %}</h3>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-6">
+				<!--div class="widget">
+					<h4 class="text-capitalize mb-4">Quick Links</h4>
+					<ul class="list-unstyled footer-menu lh-35">
+						<li><a href="#">About</a></li>
+						<li><a href="#">Services</a></li>
+						<li><a href="#">Team</a></li>
+						<li><a href="#">Contact</a></li>
+					</ul>
+				</div-->
+			</div>
+			<div class="col-lg-4 ml-auto col-sm-6">
+				<h4>Contact</h4><br>
+				<h6>{{ stichtingnaam }}<br> {{ adres_straat }},<br> {{ adres_postcode }} {{ adres_plaats }} </h6>
+				<h6> KvK nr: {{ KVK }}
+				<div class="widget">					
+					<h6></h6>
+					<h6><a href="mailto:{{ mailto }}" >{{ mailto }}</a></h6>					
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+{# Footer Close #}
